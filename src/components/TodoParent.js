@@ -4,10 +4,7 @@ import AddTodo from "./TodoForm";
 
 const TodoParent = (props) => {
   const [todo, setTodo] = useState([
-    { id: 1, title: "Go out", completed: false },
-    { id: 2, title: "Go home", completed: false },
-    { id: 3, title: "Go to bed", completed: false },
-    { id: 4, title: "Do hw", completed: false },
+    { id: 1, title: "Do your homework", completed: false },
   ]);
 
   const guid = () => {
