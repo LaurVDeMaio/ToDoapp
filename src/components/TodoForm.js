@@ -1,27 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class TodoForm extends Component {
-  constructor(props) {
-    super(props);
-    // create a ref to store the text of the DOM input element
-    this.input = React.createRef();
-  }
+const TodoForm = (props) => {
+  const [task, setTask] = useState("");
 
-  render() {
-    return (
-      <div>
-        <input type="text" placeholder="Enter a task" ref={this.input} />
-        <button
-          onClick={() => {
-            this.props.addTodoItem(this.input.current.value);
-            this.input.current.value = ""; // clear input
-          }}
-        >
-          {" + "}
-        </button>
-      </div>
-    );
-  }
-}
+  const handleAddTodo = () => {
+    props.addTodoItem(task);
+    setTask(""); // clear input
+  };
+
+  return (
+    <div>
+      <input type="text" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)}/>
+      <button onClick={handleAddTodo}>
+        {" + "}
+      </button>
+    </div>
+  );
+};
 
 export default TodoForm;
